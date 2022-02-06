@@ -23,7 +23,7 @@
 1. 자기가 만들 Page에 필요한 component를 구성하고 components폴더에 넣는다 
 - ex) Header component를 만든다고하면 components/Header/Header.jsx | StyledHeader.jsx 파일을 만든 후 Header.jsx에는 Header컴포넌트를, StyledHeader.jsx에는 styled-componensts를 
        사용하여 css를 작성한다.
-2. Page에 필요한 component를 다 만들었다면 Pages폴더안에 자신이 만든 component를 다 불러온 후 최종적으로 Page를 완성시킨다.
+2. Page에 필요한 component를 다 만들었다면 pages폴더안에 자신이 만든 component를 다 불러온 후 최종적으로 Page를 완성시킨다.
 - ex) Main Page를 만든다고 하면 pages/Main/Main.jsx | StyledMain.jsx 파일을 만든 후 Main.jsx에는 Main컴포넌트를, StyledMain.jsx에는 styled-componensts를 
        사용하여 css를 작성한다. 
 3. 만든 Page를 app.js에 라우팅 해준다. 
