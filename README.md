@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+## 커밋 메시지 컨벤션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- <타입> : <제목>
 
-## Available Scripts
+- <타입> 리스트:
+  |타입|설명|
+  |----|----|
+  |feat|새로운 기능 추가|
+  |fix|버그 수정|
+  |refact|리팩토링|
+  |docs|문서 추가, 수정, 삭제|
+  |test|테스트코드 수정, 추가, 삭제|
+  |chore|기타 변경사항|
 
-In the project directory, you can run:
+## 브랜칭 전략
 
-### `npm start`
+1. 새로운 이슈를 생성하고 이슈 번호를 확인한다.
+2. 로컬 저장소에 issue/#이슈번호 형식으로 새로운 브랜치를 생성한다.
+3. 이슈에 적어둔 내용을 수행한다.
+4. 작업 내용에 대한 테스트를 진행한다.
+5. 작업 내용을 커밋하고 원격 저장소로 push한다.
+6. 리뷰를 거친 후 작업 브랜치를 main 브랜치에 merge한다.
+7. 이슈를 닫고 작업 브랜치도 삭제한다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 코드 컨벤션
+1. 자기가 만들 Page에 필요한 component를 구성하고 components폴더에 넣는다 
+   ex) Header component를 만든다고하면 components/Header/Header.jsx | StyledHeader.jsx 파일을 만든 후 Header.jsx에는 Header컴포넌트를, StyledHeader.jsx에는 styled-componensts를 
+       사용하여 css를 작성한다.
+2. Page에 필요한 component를 다 만들었다면 Pages폴더안에 자신이 만든 component를 다 불러온 후 최종적으로 Page를 완성시킨다.
+   ex) Main Page를 만든다고 하면 pages/Main/Main.jsx | StyledMain.jsx 파일을 만든 후 Main.jsx에는 Main컴포넌트를, StyledMain.jsx에는 styled-componensts를 
+       사용하여 css를 작성한다. 
+3. 만든 Page를 app.js에 라우팅 해준다. 
+   ex)  <Route path="/" element={<Main />} />
