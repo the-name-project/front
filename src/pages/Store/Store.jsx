@@ -1,55 +1,16 @@
 // import Header from "../../components/Header/Header";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  ImgWrapper,
-  StoreImg,
   StyledStore,
-  StoreHeader,
-  Title,
-  StoreBasic,
-  Sub,
   StoreInfo,
   StoreNavBar,
   StoreInfoList,
-  StoreMap,
   StoreDetail,
-  StoreHome,
-  StoreHomeDetail,
-  StoreHomeDetailList,
-  StoreMenuDetail,
-  StoreMenuDetailList,
-  StoreMenuName,
-  StoreMenuPrice,
-  StoreMenuNameAndPrice,
-  StoreMenuImg,
-  StoreReview,
-  StoreReviewTitle,
-  StoreReviewDetail,
-  StoreReviewDetailList,
-  StoreReviewUser,
-  UserAvatar,
-  StoreReviewInfo,
-  StoreReviewTime,
-  StoreReviewContent,
-  StoreReviewImg,
-  StoreReviewImgWrapper,
-  StoreReviewEatMenu,
 } from "./StyledStore";
-import {
-  faThumbsDown,
-  faThumbsUp,
-  faStar,
-  faClock,
-} from "@fortawesome/free-regular-svg-icons";
 import { useCallback, useState } from "react";
-import {
-  faBed,
-  faHome,
-  faMapMarkedAlt,
-  faParking,
-  faPhone,
-  faStar as faSolidStar,
-} from "@fortawesome/free-solid-svg-icons";
+import StoreHeader from "../../components/StoreHeader/StoreHeader";
+import StoreHome from "../../components/StoreHome/StoreHome";
+import StoreMenu from "../../components/StoreMenu/StoreMenu";
+import StoreReview from "../../components/StoreReview/StoreReview";
 
 const storeMenu = [
   {
@@ -138,22 +99,7 @@ const reviews = [
 ];
 
 const Store = () => {
-  const [like, setLike] = useState(0);
-  const [unlike, setUnLike] = useState(0);
-  const [toggleStar, setToggleStar] = useState(false);
   const [storeInfo, setStoreInfo] = useState("home");
-
-  const onClickLike = useCallback(() => {
-    setLike(prev => prev + 1);
-  }, [like]);
-
-  const onClickUnLike = useCallback(() => {
-    setUnLike(prev => prev + 1);
-  }, [unlike]);
-
-  const onClickStar = useCallback(() => {
-    setToggleStar(prev => !prev);
-  }, [toggleStar]);
 
   const onClickStoreInfo = useCallback(
     e => {
@@ -172,39 +118,7 @@ const Store = () => {
   return (
     <>
       <StyledStore>
-        <StoreHeader>
-          <ImgWrapper>
-            {storeMenu.map(storeMenuList => (
-              <StoreImg key={storeMenuList.url} url={storeMenuList.url} />
-            ))}
-          </ImgWrapper>
-          <StoreBasic>
-            <Title>식당이름</Title>
-            <Sub>
-              <div onClick={onClickLike}>
-                <FontAwesomeIcon icon={faThumbsUp} />
-                <span>{like}</span>
-              </div>
-              <div onClick={onClickUnLike}>
-                <FontAwesomeIcon icon={faThumbsDown} />
-                <span>{unlike}</span>
-              </div>
-              <div onClick={onClickStar}>
-                {toggleStar ? (
-                  <>
-                    <FontAwesomeIcon icon={faSolidStar} color="green" />
-                    <span>취소</span>
-                  </>
-                ) : (
-                  <>
-                    <FontAwesomeIcon icon={faStar} />
-                    <span>찜하기</span>
-                  </>
-                )}
-              </div>
-            </Sub>
-          </StoreBasic>
-        </StoreHeader>
+        <StoreHeader storeMenu={storeMenu} />
         <StoreInfo>
           <StoreNavBar>
             <StoreInfoList
@@ -227,87 +141,9 @@ const Store = () => {
             </StoreInfoList>
           </StoreNavBar>
           <StoreDetail>
-            {storeInfo === "home" && (
-              <StoreHome>
-                <StoreMap>
-                  <div>지도</div>
-                </StoreMap>
-                <StoreHomeDetail>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faPhone} />
-                    <span>0507-1398-7125</span>
-                  </StoreHomeDetailList>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faMapMarkedAlt} />
-                    <span>경성대.부경대역 1번 출구에서104m</span>
-                  </StoreHomeDetailList>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faClock} />
-                    <span>매일 10:30 - 03:00</span>
-                  </StoreHomeDetailList>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faHome} />
-                    <a href="https://blog.naver.com/tkanfkdl45">
-                      https://blog.naver.com/tkanfkdl45
-                    </a>
-                  </StoreHomeDetailList>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faParking} />
-                    <span>주차 가능</span>
-                  </StoreHomeDetailList>
-                  <StoreHomeDetailList>
-                    <FontAwesomeIcon icon={faBed} />
-                    <span>매주 월요일</span>
-                  </StoreHomeDetailList>
-                </StoreHomeDetail>
-              </StoreHome>
-            )}
-            {storeInfo === "menu" && (
-              <StoreMenuDetail>
-                {storeMenu.map(storeMenuList => (
-                  <StoreMenuDetailList key={storeMenuList.id}>
-                    <StoreMenuImg url={storeMenuList.url} />
-                    <StoreMenuNameAndPrice>
-                      <StoreMenuName>{storeMenuList.title}</StoreMenuName>
-                      <StoreMenuPrice>{storeMenuList.price}원</StoreMenuPrice>
-                    </StoreMenuNameAndPrice>
-                  </StoreMenuDetailList>
-                ))}
-              </StoreMenuDetail>
-            )}
-            {storeInfo === "review" && (
-              <StoreReview>
-                <StoreReviewTitle>리뷰 ({reviews.length})</StoreReviewTitle>
-                <StoreReviewDetail>
-                  {reviews.map(review => (
-                    <StoreReviewDetailList key={review.id}>
-                      <StoreReviewUser>
-                        <UserAvatar>{review.user.nickname}</UserAvatar>
-                      </StoreReviewUser>
-                      <StoreReviewInfo>
-                        <StoreReviewTime>{review.time}</StoreReviewTime>
-                        <StoreReviewContent>
-                          <span>{review.content}</span>
-                          <span>
-                            {review.recommend ? (
-                              <FontAwesomeIcon icon={faThumbsUp} />
-                            ) : (
-                              <FontAwesomeIcon icon={faThumbsDown} />
-                            )}
-                          </span>
-                        </StoreReviewContent>
-                        <StoreReviewImgWrapper>
-                          <StoreReviewImg url={review.eatMenuImg} />
-                          <StoreReviewEatMenu>
-                            {review.eatMenu}
-                          </StoreReviewEatMenu>
-                        </StoreReviewImgWrapper>
-                      </StoreReviewInfo>
-                    </StoreReviewDetailList>
-                  ))}
-                </StoreReviewDetail>
-              </StoreReview>
-            )}
+            {storeInfo === "home" && <StoreHome />}
+            {storeInfo === "menu" && <StoreMenu storeMenu={storeMenu} />}
+            {storeInfo === "review" && <StoreReview reviews={reviews} />}
           </StoreDetail>
         </StoreInfo>
       </StyledStore>
