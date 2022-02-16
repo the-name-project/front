@@ -20,7 +20,7 @@ export const ImgWrapper = styled.div`
 //가게 이미지
 export const StoreImg = styled.div`
   ${(props) => {
-    const bgURL = `${props.img}?w=164&h=164&fit=crop&auto=format")`;
+    const bgURL = `${props.img}?w=164&h=164&fit=crop&auto=format`;
     return css`
       width: 170px;
       height: 170px;

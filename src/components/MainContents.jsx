@@ -13,19 +13,14 @@ export default function MainContents() {
       <div>Test</div>
       <ImgWrapper>
         {itemData.map((store) => (
-          <StoreImg key={store.id}>
-            <img
-              src={`${store.img}?w=164&h=164&fit=crop&auto=format`}
-              srcSet={`${store.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-              alt={store.title}
-              loading="lazy"
-            />
-            <StoreInfoBar
-              title={store.title}
-              subtitle={<span>by: {store.address}</span>}
-              position="below"
-            />
-          </StoreImg>
+          <li>{store.img}</li>
+          // <StoreImg key={store.id}>
+          // <StoreInfoBar>
+          //   title={store.title}
+          //   subtitle={<span>by: {store.address}</span>}
+          //   position="below"
+          // </StoreInfoBar>
+          // </StoreImg>
         ))}
       </ImgWrapper>
     </StyledMain>
