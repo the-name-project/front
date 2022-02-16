@@ -29,8 +29,6 @@ const MainContents = () => {
   );
 };
 
-export default MainContents;
-
 const itemData = [
   {
     id: 1,
@@ -105,3 +103,5 @@ const itemData = [
     address: "@southside_customs",
   },
 ];
+
+export default MainContents;

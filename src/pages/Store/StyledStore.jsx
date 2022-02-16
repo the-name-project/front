@@ -24,7 +24,7 @@ export const ImgWrapper = styled.div`
 `;
 
 export const StoreImg = styled.div`
-  ${props => {
+  ${(props) => {
     const bgURL = `no-repeat center/80% url("${props.url}")`;
     return css`
       width: 170px;
@@ -130,7 +130,7 @@ export const StoreHomeDetailList = styled.li`
 export const StoreMenuDetail = styled.ul``;
 
 export const StoreMenuImg = styled.div`
-  ${props => {
+  ${(props) => {
     const bgURL = `no-repeat center/80% url("${props.url}")`;
     return css`
       width: 120px;
@@ -211,7 +211,7 @@ export const StoreReviewImgWrapper = styled.div`
   align-self: flex-start;
 `;
 export const StoreReviewImg = styled.div`
-  ${props => {
+  ${(props) => {
     const bgURL = `no-repeat center/80% url("${props.url}")`;
     return css`
       width: ${bgURL ? "120px" : "0px"};
