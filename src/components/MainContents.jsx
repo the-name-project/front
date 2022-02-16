@@ -1,7 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useInView } from "react-intersection-observer";
-import axios from "axios";
-import { StoreInfo } from "./StroeInfo";
+import React, { useState } from "react";
 import {
   StyledMain,
   ImgWrapper,
@@ -10,26 +7,28 @@ import {
   Title,
 } from "./StyledMainContents";
 
-const MainContents = () => {
+const MainContents = ({ posts, loading }) => {
   const [mouseon, setMonuseon] = useState(0); //이미지 위에 마우스를 올렸을 때
   const [click, setClick] = useState(0); //클릭 했을 때
 
   return (
-    <StyledMain>
-      <div>Test</div>
-      <ImgWrapper>
-        {itemData.map((store) => (
-          <ImgDetail>
-            <StoreImg classname="Img" key={store.id} img={store.img} />
-            <Title>{store.title}</Title>
-          </ImgDetail>
-        ))}
-      </ImgWrapper>
-    </StyledMain>
+    <>
+      {loading && <div> loading... </div>}
+
+      <StyledMain>
+        <div>Test</div>
+        <ImgWrapper>
+          {posts.map((post) => (
+            <ImgDetail>
+              <StoreImg classname="Img" key={post.url} url={post.url} />
+              <Title>{post.title}</Title>
+            </ImgDetail>
+          ))}
+        </ImgWrapper>
+      </StyledMain>
+    </>
   );
 };
-
-export default MainContents;
 
 const itemData = [
   {
@@ -105,3 +104,5 @@ const itemData = [
     address: "@southside_customs",
   },
 ];
+
+export default MainContents;

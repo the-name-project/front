@@ -23,9 +23,9 @@ export const ImgDetail = styled.div`
 `;
 
 //가게 이미지
-export const StoreImg = styled.li`
+export const StoreImg = styled.ul`
   ${(props) => {
-    const bgURL = `no-repeat center/80% url("${props.img}")`;
+    const bgURL = `no-repeat center/80% url("${props.url}")`;
     return css`
       list-style: none;
       width: 400px;
@@ -49,6 +49,47 @@ export const Title = styled.h3`
   }}
   margin-bottom: 30px;
 `;
+
+// export const StoreInfo = styled.ul`
+//   font-size: 0;
+// `;
+
+// export const StoreInfoDetail = styled.li`
+//   display: inlin-block;
+//   vertical-align: top;
+//   width: 33.3%;
+// `;
+
+// export const a = styled.a`
+//   display: block;
+//   width: auto;
+//   text-decoration: none;
+//   margin: 5px;
+// `;
+
+// a.screen`{
+//   position:realstive;
+//   overflow:hidden;
+// }`;
+
+// a.screen.top`{
+//   position:absolute;
+//   bottom:150%;
+//   left:30px;
+//   z-index:2;
+//   color:#fff;
+//   font-size:26px;
+//   font-weight:900;
+// }`;
+
+// a.screen.bottom`{
+//   position:absolute;
+//   top:150%
+//   left:30px;
+//   z-index:2;
+//   color:#fff;
+//   font-size:12px;
+// }`;
 
 //가게 주소
 export const address = styled.h3`
