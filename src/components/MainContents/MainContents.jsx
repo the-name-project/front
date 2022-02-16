@@ -15,17 +15,19 @@ const MainContents = ({ posts, loading }) => {
     <>
       {loading && <div> loading... </div>}
 
-      <StyledMain>
-        <div>Test</div>
-        <ImgWrapper>
-          {posts.map((post) => (
-            <ImgDetail>
-              <StoreImg classname="Img" key={post.url} url={post.url} />
-              <Title>{post.title}</Title>
-            </ImgDetail>
-          ))}
-        </ImgWrapper>
-      </StyledMain>
+      {
+        <StyledMain>
+          <div>Test</div>
+          <ImgWrapper>
+            {posts.map((post) => (
+              <ImgDetail>
+                <StoreImg key={post.id} url={post.url} />
+                <Title>{post.id}</Title>
+              </ImgDetail>
+            ))}
+          </ImgWrapper>
+        </StyledMain>
+      }
     </>
   );
 };

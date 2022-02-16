@@ -44,6 +44,7 @@ export const Title = styled.h3`
     const bgURL = `no-repeat center/80% url("${props.title}")`;
     return css`
       text-align: center;
+      white-space: wrap;
       font-size: 1.3rem;
     `;
   }}

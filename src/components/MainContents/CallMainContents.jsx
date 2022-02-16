@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { StoreInfo } from "../pages/Store/StyledStore";
 import MainContents from "./MainContents";
 import Pagination from "./Paginatio";
 
@@ -22,8 +21,11 @@ const CallMainContents = () => {
     fetchData();
   }, []);
 
+  //얼만큼 자르는지
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
+
+  //잘라주는 함수
   function currentPosts(tmp) {
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
@@ -34,7 +36,11 @@ const CallMainContents = () => {
 
   return (
     <div className="CallMainContents">
-      <MainContents posts={posts} loading={loading}></MainContents>
+      <MainContents
+        posts={currentPosts(posts)}
+        loading={loading}
+        currentPage={currentPage}
+      ></MainContents>
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
