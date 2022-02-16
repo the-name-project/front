@@ -4,7 +4,6 @@ export const StyledStore = styled.div`
   /* padding: 20px; */
   background-color: #e9ecef;
 `;
-
 export const StoreInfo = styled.div``;
 
 export const StoreNavBar = styled.ul`
@@ -40,3 +39,5 @@ export const StoreInfoList = styled.li`
 export const StoreDetail = styled.div`
   background-color: #ffffff;
 `;
+
+
