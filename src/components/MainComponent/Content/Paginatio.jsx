@@ -40,13 +40,19 @@ const PageSpan = styled.span`
   }
 `;
 
+const Div = styled.div`
+  text-align: center;
+
+  margin: 10px;
+`;
+
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
   }
   return (
-    <div>
+    <Div>
       <nav>
         <PageUl className="pagination">
           {pageNumbers.map((number) => (
@@ -58,7 +64,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
           ))}
         </PageUl>
       </nav>
-    </div>
+    </Div>
   );
 };
 
