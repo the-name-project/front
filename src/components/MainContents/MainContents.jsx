@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyledMain,
   ImgWrapper,
   ImgDetail,
   StoreImg,
   Title,
+  Cursor,
 } from "./StyledMainContents";
 
 const MainContents = ({ posts, loading }) => {
-  const [mouseon, setMonuseon] = useState(0); //이미지 위에 마우스를 올렸을 때
+  const [position, setPosition] = useState({
+    x: "",
+    y: "",
+  }); //이미지 위에 마우스를 올렸을 때
   const [click, setClick] = useState(0); //클릭 했을 때
+
+  const handleMouseMove = (e) => {
+    setPosition({
+      x: e.clientX,
+      y: e.clientY,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.addEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     <>
@@ -21,11 +39,20 @@ const MainContents = ({ posts, loading }) => {
           <ImgWrapper>
             {posts.map((post) => (
               <ImgDetail>
-                <StoreImg key={post.id} url={post.url} />
+                <StoreImg
+                  className="img-cont"
+                  key={post.id}
+                  url={post.url}
+                ></StoreImg>
                 <Title>{post.id}</Title>
               </ImgDetail>
             ))}
           </ImgWrapper>
+
+          <div
+            style={{ left: `${position.x}px`, top: `${position.y}` }}
+            className="cursor"
+          ></div>
         </StyledMain>
       }
     </>

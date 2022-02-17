@@ -18,7 +18,7 @@ export const ImgWrapper = styled.div`
   // background-color: pink; //범위 확인용 컬러
 `;
 
-export const ImgDetail = styled.div`
+export const ImgDetail = styled.ul`
   background-color: white;
 `;
 
@@ -36,13 +36,21 @@ export const StoreImg = styled.ul`
       margin-left: 30px;
     `;
   }}
+
+  .img-cont{
+    postion-absolute;
+    width: 300px
+    transform: (0.8);
+    opacity: 0;
+  }
 `;
 
 //가게 이름
-export const Title = styled.h3`
+export const Title = styled.li`
   ${(props) => {
     const bgURL = `no-repeat center/80% url("${props.title}")`;
     return css`
+      list-style: none;
       text-align: center;
       white-space: wrap;
       font-size: 1.3rem;
@@ -50,47 +58,6 @@ export const Title = styled.h3`
   }}
   margin-bottom: 30px;
 `;
-
-// export const StoreInfo = styled.ul`
-//   font-size: 0;
-// `;
-
-// export const StoreInfoDetail = styled.li`
-//   display: inlin-block;
-//   vertical-align: top;
-//   width: 33.3%;
-// `;
-
-// export const a = styled.a`
-//   display: block;
-//   width: auto;
-//   text-decoration: none;
-//   margin: 5px;
-// `;
-
-// a.screen`{
-//   position:realstive;
-//   overflow:hidden;
-// }`;
-
-// a.screen.top`{
-//   position:absolute;
-//   bottom:150%;
-//   left:30px;
-//   z-index:2;
-//   color:#fff;
-//   font-size:26px;
-//   font-weight:900;
-// }`;
-
-// a.screen.bottom`{
-//   position:absolute;
-//   top:150%
-//   left:30px;
-//   z-index:2;
-//   color:#fff;
-//   font-size:12px;
-// }`;
 
 //가게 주소
 export const address = styled.h3`
@@ -101,3 +68,6 @@ export const address = styled.h3`
 export const StoreInfoBar = styled.h3`
   font-size: 1rem;
 `;
+
+//마우스 애니메이션
+export const Ul = styled.ul``;
