@@ -1,64 +1,62 @@
 import React, { useState, useEffect } from "react";
+import { isCompositeComponent } from "react-dom/test-utils";
 import {
   StyledMain,
   ImgWrapper,
   ImgDetail,
   StoreImg,
   Title,
-  Cursor,
+  StoreInfoTop,
 } from "./StyledMainContents";
 
 const MainContents = ({ posts, loading }) => {
-  const [position, setPosition] = useState({
-    x: "",
-    y: "",
-  }); //이미지 위에 마우스를 올렸을 때
   const [click, setClick] = useState(0); //클릭 했을 때
 
-  const handleMouseMove = (e) => {
-    setPosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
-  };
+  const [mouseover, setMouseOver] = useState(""); //마우스 커서를 올렸을때 타이틀 저장
+  const [flag, setFlag] = useState(false); //마우스 커서가 사진 위에 존재하는지 true,false로 확인
+  const [id, setId] = useState(0); //마우스 커서가 올려진 사진만 타이틀을 출력하기 위해 id 따로 저장
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.addEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
+    console.log("제목" + mouseover);
+  }, [mouseover]);
   return (
     <>
       {loading && <div> loading... </div>}
 
       {
         <StyledMain>
-          <div>Test</div>
           <ImgWrapper>
             {posts.map((post) => (
               <ImgDetail>
                 <StoreImg
-                  className="img-cont"
                   key={post.id}
                   url={post.url}
-                ></StoreImg>
+                  onMouseOver={() => {
+                    setMouseOver(post.title);
+                    setFlag(true);
+                    setId(post.id);
+                  }}
+                  onMouseOut={() => {
+                    setFlag(false);
+                  }}
+                >
+                  {flag == true && post.id == id ? (
+                    <StoreInfoTop className="top">{mouseover}</StoreInfoTop>
+                  ) : (
+                    <StoreInfoTop className="top"></StoreInfoTop>
+                  )}
+                </StoreImg>
                 <Title>{post.id}</Title>
               </ImgDetail>
             ))}
           </ImgWrapper>
-
-          <div
-            style={{ left: `${position.x}px`, top: `${position.y}` }}
-            className="cursor"
-          ></div>
         </StyledMain>
       }
     </>
   );
 };
 
+//더미데이터
 const itemData = [
   {
     id: 1,

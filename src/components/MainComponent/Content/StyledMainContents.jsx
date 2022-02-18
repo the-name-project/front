@@ -36,26 +36,26 @@ export const StoreImg = styled.ul`
       margin-left: 30px;
     `;
   }}
+  
 
-  .img-cont{
-    postion-absolute;
-    width: 300px
-    transform: (0.8);
-    opacity: 0;
+  &:hover {
+    opacity: 30%;
+    cursor: pointer;
+    .top{
+      position: absolute;
+      top: 150:
+      left:30px;
+      z-index:2;
+      // color: black;
+      font-size:1rem;
+    }
   }
 `;
 
 //가게 이름
 export const Title = styled.li`
-  ${(props) => {
-    const bgURL = `no-repeat center/80% url("${props.title}")`;
-    return css`
-      list-style: none;
-      text-align: center;
-      white-space: wrap;
-      font-size: 1.3rem;
-    `;
-  }}
+  font-size: 1rem;
+  text-align: center;
   margin-bottom: 30px;
 `;
 
@@ -65,9 +65,12 @@ export const address = styled.h3`
 `;
 
 //가게 설명
-export const StoreInfoBar = styled.h3`
+export const StoreInfoTop = styled.h3`
+  position: absolute;
+  top: 150:
+  left:30px;
+  z-index:2;
+  color: black;
   font-size: 1rem;
+  // opcity: 0%
 `;
-
-//마우스 애니메이션
-export const Ul = styled.ul``;
