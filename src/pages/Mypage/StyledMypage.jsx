@@ -9,7 +9,7 @@ export const MypageCon = styled.div`
     display: flex;
     flex-direction :column;
     max-width :1200px;
-    
+
     justify-items :center;
 
     margin:0 auto;
@@ -35,6 +35,7 @@ export const MypageTop = styled.div`
     height :5vw;
     max-height :7rem;
 `;
+
 
 export const MypageUserInfo = styled.div`
     display :flex;
@@ -124,13 +125,13 @@ export const MypageJjimStore = styled.div`
     
     margin-left :5vw;
     margin-right :5vw;
+    background-color :bisque;
 `;
 
 export const MypageJjimLine = styled.div`
     display :flex;
     flex :1;
     flex-direction :row;
-
     background-color :#dddddd;
 `;
 
