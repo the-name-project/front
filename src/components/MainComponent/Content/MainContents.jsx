@@ -13,11 +13,10 @@ const MainContents = ({ posts, loading }) => {
 
   return (
     <>
-      {loading && <div> loading... </div>}
+      {loading && <div> sadasdd </div>}
 
       {
         <StyledMain>
-          <div>Test</div>
           <ImgWrapper>
             {posts.map((post) => (
               <ImgDetail>

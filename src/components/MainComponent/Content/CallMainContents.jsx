@@ -7,7 +7,7 @@ const CallMainContents = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(100);
+  const [postsPerPage, setPostsPerPage] = useState(30);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,7 +37,8 @@ const CallMainContents = () => {
   return (
     <div className="CallMainContents">
       <MainContents
-        posts={currentPosts(posts)}
+        posts={currentPosts(posts)}//currentPage 에따른 postsPerPage만큼의 
+        // 개수로 받은데이터(posts)를 나누는함수
         loading={loading}
         currentPage={currentPage}
       ></MainContents>

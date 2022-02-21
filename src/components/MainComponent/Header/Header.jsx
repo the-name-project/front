@@ -15,6 +15,7 @@ import {
 import logo from "./만원의행복_100px_9b8b71_3.png";
 const Header = () => {
   const [filter, setFilter] = useState(false);
+
   const Modal = () => {
     return (
       <ModalOverlay>
