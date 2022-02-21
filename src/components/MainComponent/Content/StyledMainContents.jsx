@@ -23,19 +23,15 @@ export const ImgDetail = styled.ul`
 `;
 
 //가게 이미지
-export const StoreImg = styled.ul`
-  ${(props) => {
-    const bgURL = `no-repeat center/80% url(${props.image})`;
-    return css`
+export const StoreImg = styled.img`
+  
       list-style: none;
       width: 400px;
       height: 400px;
-      background: ${bgURL};
       background-size: cover;
       margin-right: 30px;
       margin-left: 30px;
-    `;
-  }}
+    
   transition: 0.1s;
   &:hover {
     background: black;

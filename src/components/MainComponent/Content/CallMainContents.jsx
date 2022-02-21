@@ -13,7 +13,7 @@ const CallMainContents = () => {
     async function fetchData() {
       setLoading(true);
       const response = await axios.get(
-        "http://127.0.0.1:8000/store?skip=0&limit=100&wheres=%EC%A4%91%EA%B5%AC"
+        "http://127.0.0.1:8000/store?skip=0&limit=100"
       );
       setPosts(response.data);
       setLoading(false);

@@ -28,7 +28,9 @@ const MainContents = ({ posts, loading }) => {
               <ImgDetail key={post.id}>
                 <StoreImg
                   key={post.id}
-                  image={post.image.slice(2)}
+                  src={post.image}
+                  referrerpolicy="no-referrer"
+                  alt=""
                   onMouseOver={() => {
                     //마우스 올렸을때
                     setMouseOver(post.address); //post.title 값을 mouseover에 저장
@@ -38,13 +40,14 @@ const MainContents = ({ posts, loading }) => {
                   onMouseOut={() => {
                     setFlag(false);
                   }}
-                >
-                  {flag == true && post.id == id ? (
-                    <Storeaddress>
-                      <StoreInfoTop className="top">{mouseover}</StoreInfoTop>
-                    </Storeaddress>
-                  ) : null}
-                </StoreImg>
+                ></StoreImg>
+                {flag == true && post.id == id ? (
+                  <Storeaddress>
+                    <StoreInfoTop className="top">{mouseover}</StoreInfoTop>
+                  </Storeaddress>
+                ) : null}
+
+                {/* <img src={post.image} referrerpolicy="no-referrer" alt="" /> //이거 한번 실행해주면 이미지 뜸(이유는 모르겠음) */}
                 <Title key={post.name}>{post.name}</Title>
               </ImgDetail>
             ))}
