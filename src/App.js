@@ -7,9 +7,10 @@ import Mypage from "./pages/Mypage/Mypage";
 function App() {
   return (
     <Router>
-      <Routes>z
-        <Route path = "/" element = {<Mypage/>}/>
-        <Route path="/" element={<Store />} />
+      <Routes>
+        z
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/store/:storeId" element={<Store />} />
         <Route path="/" element={<Main />} />
       </Routes>
     </Router>
