@@ -13,8 +13,8 @@ const CallMainContents = () => {
     async function fetchData() {
       setLoading(true);
       const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/photos"
-      ); //서버가 있어야 함
+        "http://127.0.0.1:8000/store?skip=0&limit=100&wheres=%EC%A4%91%EA%B5%AC"
+      );
       setPosts(response.data);
       setLoading(false);
     }

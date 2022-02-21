@@ -25,7 +25,7 @@ export const ImgDetail = styled.ul`
 //가게 이미지
 export const StoreImg = styled.ul`
   ${(props) => {
-    const bgURL = `no-repeat center/80% url("${props.url}")`;
+    const bgURL = `no-repeat center/80% url(${props.image})`;
     return css`
       list-style: none;
       width: 400px;
@@ -36,17 +36,17 @@ export const StoreImg = styled.ul`
       margin-left: 30px;
     `;
   }}
-  
-
+  transition: 0.1s;
   &:hover {
-    opacity: 30%;
+    background: black;
+    opacity: 30%
     cursor: pointer;
     .top{
       position: absolute;
       top: 150:
       left:30px;
       z-index:2;
-      // color: black;
+      color: white;
       font-size:1rem;
     }
   }
@@ -54,23 +54,27 @@ export const StoreImg = styled.ul`
 
 //가게 이름
 export const Title = styled.li`
-  font-size: 1rem;
-  text-align: center;
+  font-size: 1.3rem;
+  margin-left: 30px;
+  margin-top: 2px;
+  margin-bottom: 30px;
+`;
+
+//가게 별점
+export const Star = styled.li`
+  font-size: 1.3rem;
+  margin-left: 30px;
+  margin-top: 2px;
   margin-bottom: 30px;
 `;
 
 //가게 주소
-export const address = styled.h3`
+export const Storeaddress = styled.h3`
   font-size: 1rem;
 `;
 
 //가게 설명
-export const StoreInfoTop = styled.h3`
-  position: absolute;
-  top: 150:
-  left:30px;
-  z-index:2;
+export const StoreInfoTop = styled.div`
   color: black;
   font-size: 1rem;
-  // opcity: 0%
 `;
