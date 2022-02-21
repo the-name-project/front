@@ -6,38 +6,13 @@ import {
   StoreInfoList,
   StoreDetail,
 } from "./StyledStore";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import StoreHeader from "../../components/StoreHeader/StoreHeader";
 import StoreHome from "../../components/StoreHome/StoreHome";
 import StoreMenu from "../../components/StoreMenu/StoreMenu";
 import StoreReview from "../../components/StoreReview/StoreReview";
-
-const storeMenu = [
-  {
-    id: 1,
-    url: "https://mp-seoul-image-production-s3.mangoplate.com/1129699_1620482534399327.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-    title: "민물장어덮밥",
-    price: "6700",
-  },
-  {
-    id: 2,
-    url: "https://mp-seoul-image-production-s3.mangoplate.com/1187014_1642204185842842.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-    title: "해산물덮밥",
-    price: "7200",
-  },
-  {
-    id: 3,
-    url: "https://mp-seoul-image-production-s3.mangoplate.com/1187014_1642204186557414.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-    title: "카이센동",
-    price: "8900",
-  },
-  {
-    id: 4,
-    url: "https://mp-seoul-image-production-s3.mangoplate.com/1187014_1642204186249261.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
-    title: "생연어덮밥",
-    price: "7200",
-  },
-];
+import axios from "axios";
+import { useLocation, useParams } from "react-router";
 
 const reviews = [
   {
@@ -100,6 +75,21 @@ const reviews = [
 
 const Store = () => {
   const [storeInfo, setStoreInfo] = useState("home");
+  const [getStore, setGetStore] = useState({});
+  const { storeId } = useParams();
+  console.log(storeId);
+
+  useEffect(() => {
+    axios
+      .get(`http://127.0.0.1:8000/store/${storeId}`)
+      .then(response => {
+        console.log(response.data);
+        setGetStore(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [storeId]);
 
   const onClickStoreInfo = useCallback(
     e => {
@@ -118,7 +108,7 @@ const Store = () => {
   return (
     <>
       <StyledStore>
-        <StoreHeader storeMenu={storeMenu} />
+        <StoreHeader name={getStore.name} storeImage={getStore.image} />
         <StoreInfo>
           <StoreNavBar>
             <StoreInfoList
@@ -141,8 +131,8 @@ const Store = () => {
             </StoreInfoList>
           </StoreNavBar>
           <StoreDetail>
-            {storeInfo === "home" && <StoreHome />}
-            {storeInfo === "menu" && <StoreMenu storeMenu={storeMenu} />}
+            {storeInfo === "home" && <StoreHome getStore={getStore} />}
+            {storeInfo === "menu" && <StoreMenu storeId={storeId} />}
             {storeInfo === "review" && <StoreReview reviews={reviews} />}
           </StoreDetail>
         </StoreInfo>

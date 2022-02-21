@@ -20,12 +20,12 @@ export const ImgWrapper = styled.div`
 
 export const StoreImg = styled.div`
   ${props => {
-    const bgURL = `no-repeat center/80% url("${props.url}")`;
+    const bgURL = `no-repeat center center /100% url("${props.url}")`;
     return css`
-      width: 170px;
-      height: 170px;
+      width: 80vw;
+      height: 460px;
       background: ${bgURL};
-      background-size: contain;
+      background-size: cover;
     `;
   }}
 `;
