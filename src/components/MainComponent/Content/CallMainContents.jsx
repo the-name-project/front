@@ -1,53 +1,56 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import MainContents from "./MainContents";
-import Pagination from "./Paginatio";
-
+import FirstPost from "./FirstPost";
+import PlusPost from "./PlusPost";
+import { ImgWrapper, StyledPlus } from "./StyledCallMainContents";
 
 const CallMainContents = () => {
+  const [plusPost, setPlusPost] = useState([]);
+  const [plusPostArray, setPlusPostArray] = useState([]);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(30);
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(30);
+  // &wheres=%EB%8F%99%EA%B5%AC
+  const [where, setWhere] = useState("");
+  const Test = () => {
+    setSkip(skip + 30);
+  };
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       const response = await axios.get(
-        "http://127.0.0.1:8000/store?skip=0&limit=30"
+        `http://127.0.0.1:8000/store?skip=${skip}&limit=${limit}${where}`
       ); //서버가 있어야 함
-      setPosts(response.data);
+      console.log(response.data);
+      let poooost = response.data.slice(0, 30);
+      skip === 0 ? setPosts(poooost) : setPlusPost(poooost); //첨에만 post값 바꿔주고 그담부턴딴거
       setLoading(false);
     }
     fetchData();
-  }, []);
-
-  //얼만큼 자르는지
-  const indexOfLast = currentPage * postsPerPage;
-  const indexOfFirst = indexOfLast - postsPerPage;
-
-  //잘라주는 함수
-  function currentPosts(tmp) {
-    let currentPosts = 0;
-    currentPosts = tmp.slice(indexOfFirst, indexOfLast);
-    return currentPosts;
-  }
-
-  console.log(posts);
+  }, [skip, where]);
 
   return (
-    <div className="CallMainContents">
-      <MainContents
-        posts={currentPosts(posts)} //currentPage 에따른 postsPerPage만큼의
-        // 개수로 받은데이터(posts)를 나누는함수
-        loading={loading}
-        currentPage={currentPage}
-      ></MainContents>
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        paginate={setCurrentPage}
-      ></Pagination>
+    <div>
+      <ImgWrapper>
+        <FirstPost posts={posts} loading={loading}></FirstPost>
+        {/* 1. map을 이용해서 pluspost를 만들때마다 처음부터 렌더링 해도되지만, 
+        // 그렇게하기싫고
+        반복이 아니라 추가를 하고싶다... 어떻게 해야할까?
+        2. 그러니까 onclick이 될때마다
+        //  <PlusPost posts={plusPost} loading={loading}></PlusPost>
+        3.이게 추가가 되면된다는말이다. 아주 단순한 방법이 있을텐데.... */}
+        <PlusPost posts={plusPost} loading={loading}></PlusPost>
+        
+      </ImgWrapper>
+      <StyledPlus
+        onClick={() => {
+          Test();
+        }}
+      >
+        버어엌
+      </StyledPlus>
     </div>
   );
 };
