@@ -18,38 +18,79 @@ export const ImgWrapper = styled.div`
   // background-color: pink; //범위 확인용 컬러
 `;
 
-export const ImgDetail = styled.ul`
+export const ImgDetail = styled.div`
   background-color: white;
 `;
 
 //가게 이미지
-export const StoreImg = styled.img`
-  
-      list-style: none;
-      width: 400px;
-      height: 400px;
-      background-size: cover;
-      margin-right: 30px;
-      margin-left: 30px;
-    
+export const StoreImg = styled.ul`
+  list-style: none;
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  margin-right: 30px;
+  margin-left: 30px;
   transition: 0.1s;
   &:hover {
     background: black;
     opacity: 30%
     cursor: pointer;
-    .top{
-      position: absolute;
-      top: 150:
-      left:30px;
-      z-index:2;
-      color: white;
-      font-size:1rem;
-    }
+  }
+  .top{
+    position: absolute;
+    top: 150:
+    left:30px;
+    z-index:2;
+    color: white;
+    font-size:1rem;
   }
 `;
 
+export const StoreImgDetail = styled.img`
+  float: left;
+  vertical-align: top;
+  width: 400px;
+  height: 400px;
+  margin-right: 30px;
+  transition: 0.1s;
+  background-size: cover;
+  &:hover {
+    opacity: 30%;
+  }
+`;
+
+// export const StoreImg = styled.ul`
+// ${(props) => {
+//   const bgURL = `no-repeat center/80% url("${props.image}")`;
+//   return css`
+//       list-style: none;
+//       width: 400px;
+//       height: 400px;
+//       backgroud: ${bgURL}
+//       background-size: cover;
+//       margin-right: 30px;
+//       margin-left: 30px;
+//       `;
+// }}
+//   transition: 0.1s;
+//   &:hover {
+//     background: black;
+//     opacity: 30%
+//     cursor: pointer;
+//     .top{
+//       position: absolute;
+//       top: 150:
+//       left:30px;
+//       z-index:2;
+//       color: white;
+//       font-size:1rem;
+//     }
+//   }
+// `;
+
 //가게 이름
 export const Title = styled.li`
+  list-style: none;
   font-size: 1.3rem;
   margin-left: 30px;
   margin-top: 2px;

@@ -38,6 +38,5 @@ export const PageSpan = styled.span`
 
 export const Div = styled.div`
   text-align: center;
-
   margin: 10px;
 `;
