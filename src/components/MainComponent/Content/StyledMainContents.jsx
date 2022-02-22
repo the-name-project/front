@@ -9,7 +9,7 @@ export const StyledMain = styled.div`
 //콘텐츠 플렉스 박스 레이아웃
 export const ImgWrapper = styled.div`
   display: flex;
-  flex-direction: cloumn;
+
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
@@ -18,24 +18,11 @@ export const ImgWrapper = styled.div`
   // background-color: pink; //범위 확인용 컬러
 `;
 
-export const ImgDetail = styled.div`
-  background-color: white;
-`;
+export const ImgContainer = styled.div`
 
-//가게 이미지
-export const StoreImg = styled.ul`
-  list-style: none;
-  width: 400px;
-  height: 400px;
-  background-size: cover;
-  margin-right: 30px;
-  margin-left: 30px;
-  transition: 0.1s;
-  &:hover {
-    background: black;
-    opacity: 30%
-    cursor: pointer;
-  }
+  position :relative;
+  float: left;
+  border: 5px solid blue;
   .top{
     position: absolute;
     top: 150:
@@ -46,55 +33,29 @@ export const StoreImg = styled.ul`
   }
 `;
 
-export const StoreImgDetail = styled.img`
-  float: left;
+//가게 이미지
+export const StoreImg = styled.img`
   vertical-align: top;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   margin-right: 30px;
   transition: 0.1s;
   background-size: cover;
   &:hover {
-    opacity: 30%;
+    opacity: 0.5;
+
+    cursor: pointer;
   }
 `;
 
-// export const StoreImg = styled.ul`
-// ${(props) => {
-//   const bgURL = `no-repeat center/80% url("${props.image}")`;
-//   return css`
-//       list-style: none;
-//       width: 400px;
-//       height: 400px;
-//       backgroud: ${bgURL}
-//       background-size: cover;
-//       margin-right: 30px;
-//       margin-left: 30px;
-//       `;
-// }}
-//   transition: 0.1s;
-//   &:hover {
-//     background: black;
-//     opacity: 30%
-//     cursor: pointer;
-//     .top{
-//       position: absolute;
-//       top: 150:
-//       left:30px;
-//       z-index:2;
-//       color: white;
-//       font-size:1rem;
-//     }
-//   }
-// `;
-
 //가게 이름
-export const Title = styled.li`
-  list-style: none;
+export const StoreContent = styled.div`
   font-size: 1.3rem;
-  margin-left: 30px;
-  margin-top: 2px;
+  margin-top: 10px;
   margin-bottom: 30px;
+  text-align: center;
+
+  width: 300px;
 `;
 
 //가게 별점
@@ -106,12 +67,15 @@ export const Star = styled.li`
 `;
 
 //가게 주소
-export const Storeaddress = styled.h3`
-  font-size: 1rem;
+export const Storeaddress = styled.div`
+  position: absolute;
+  font-size: 1.5rem;
+  width: 300px;
+  top: 0;
 `;
 
 //가게 설명
-export const StoreInfoTop = styled.div`
+export const StoreInfoTop = styled.h3`
   color: black;
   font-size: 1rem;
 `;
