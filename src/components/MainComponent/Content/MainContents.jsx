@@ -1,27 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { isCompositeComponent } from "react-dom/test-utils";
 import {
   StyledMain,
   ImgWrapper,
   ImgDetail,
   StoreImg,
   Title,
+  StoreInfoTop,
+  Storeaddress,
+  StoreImgDetail,
 } from "./StyledMainContents";
 
 const MainContents = ({ posts, loading }) => {
-  const [mouseon, setMonuseon] = useState(0); //이미지 위에 마우스를 올렸을 때
   const [click, setClick] = useState(0); //클릭 했을 때
+
+  const [mouseover, setMouseOver] = useState(""); //마우스 커서를 올렸을때 타이틀 저장
+  const [flag, setFlag] = useState(false); //마우스 커서가 사진 위에 존재하는지 true,false로 확인
+  const [id, setId] = useState(0); //마우스 커서가 올려진 사진만 타이틀을 출력하기 위해 id 따로 저장
 
   return (
     <>
-      {loading && <div> sadasdd </div>}
+
+      {loading && <div> 로딩중입니다:) </div>}
+
 
       {
         <StyledMain>
           <ImgWrapper>
             {posts.map((post) => (
-              <ImgDetail>
-                <StoreImg key={post.id} url={post.url} />
-                <Title>{post.id}</Title>
+              <ImgDetail key={post.id}>
+                <StoreImg>
+                  <StoreImgDetail
+                    src={post.image}
+                    referrerPolicy="no-referrer"
+                    alt=""
+                    onMouseOver={() => {
+                      //마우스 올렸을때
+                      setMouseOver(post.address); //post.title 값을 mouseover에 저장
+                      setFlag(true); // flag -> true
+                      setId(post.id); //마우스가 올려진 사진의 고유 id 저장
+                    }}
+                    onMouseOut={() => {
+                      setFlag(false);
+                    }}
+                  ></StoreImgDetail>
+                  {flag == true && post.id == id ? (
+                    <Storeaddress>
+                      <StoreInfoTop className="top">{mouseover}</StoreInfoTop>
+                    </Storeaddress>
+                  ) : null}
+                </StoreImg>
+                {/* <img src={post.image} referrerpolicy="/no-referrer" alt="" />{" "}
+                //이거 한번 실행해주면 이미지 뜸(이유는 모르겠음) */}
+                <Title key={post.name}>{post.name}</Title>
               </ImgDetail>
             ))}
           </ImgWrapper>
@@ -30,80 +61,5 @@ const MainContents = ({ posts, loading }) => {
     </>
   );
 };
-
-const itemData = [
-  {
-    id: 1,
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "맛있는 아침",
-    address: "@부산광역시 남구 대연동 어쩌구저쩌구",
-  },
-  {
-    id: 2,
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Burger",
-    address: "@rollelflex_graphy726",
-  },
-  {
-    id: 3,
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-    address: "@helloimnik",
-  },
-  {
-    id: 4,
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-    address: "@nolanissac",
-  },
-  {
-    id: 5,
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-    address: "@hjrc33",
-  },
-  {
-    id: 6,
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    title: "Honey",
-    address: "@arwinneil",
-  },
-  {
-    id: 7,
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    title: "Basketball",
-    address: "@tjdragotta",
-  },
-  {
-    id: 8,
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    title: "Fern",
-    address: "@katie_wasserman",
-  },
-  {
-    id: 9,
-    img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    title: "Mushrooms",
-    address: "@silverdalex",
-  },
-  {
-    id: 10,
-    img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-    title: "Tomato basil",
-    address: "@shelleypauls",
-  },
-  {
-    id: 11,
-    img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-    title: "Sea star",
-    address: "@peterlaster",
-  },
-  {
-    id: 12,
-    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    title: "Bike",
-    address: "@southside_customs",
-  },
-];
 
 export default MainContents;
