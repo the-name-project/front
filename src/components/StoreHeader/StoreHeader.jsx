@@ -15,7 +15,7 @@ import { faStar as faSolidStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCallback, useState } from "react";
 
-const StoreHeader = ({ storeMenu }) => {
+const StoreHeader = ({ name, storeImage }) => {
   const [like, setLike] = useState(0);
   const [unlike, setUnLike] = useState(0);
   const [toggleStar, setToggleStar] = useState(false);
@@ -34,12 +34,10 @@ const StoreHeader = ({ storeMenu }) => {
   return (
     <StyledStoreHeader>
       <ImgWrapper>
-        {storeMenu.map(storeMenuList => (
-          <StoreImg key={storeMenuList.url} url={storeMenuList.url} />
-        ))}
+        <StoreImg url={storeImage} />
       </ImgWrapper>
       <StoreBasic>
-        <Title>식당이름</Title>
+        <Title>{name}</Title>
         <Sub>
           <div onClick={onClickLike}>
             <FontAwesomeIcon icon={faThumbsUp} />
