@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "./만원의행복3.png";
+import axios from "axios";
+
+// import logo from "./만원의행복3.png";
 import {
   LogoImg,
   Title,
@@ -30,7 +33,7 @@ const Login = () => {
       setFetUser(null);
       setLoading(true);
       const res = await axios.get("http://127.0.0.1:8000/user");
-      const ress = res.find((ress) => ress.email === user.email);
+      const ress = res.find(ress => ress.email === user.email);
       setFetUser(ress);
     } catch (e) {
       setError(e);
@@ -38,13 +41,13 @@ const Login = () => {
     setLoading(false);
   };
 
-  const onChange = (event) => {
+  const onChange = event => {
     setUser({
       ...user,
       [event.target.name]: event.target.value,
     });
   };
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     event.preventDefault();
     fetchInfo();
     if (!fetchUser) return null;
@@ -58,6 +61,7 @@ const Login = () => {
       window.alert("존재하지 않는 계정입니다.");
     }
   };
+ 
 
   return (
     <div>
