@@ -1,4 +1,5 @@
 import {
+  IconWrapper,
   ImgWrapper,
   ModalWrapper,
   StoreBasic,
@@ -26,21 +27,26 @@ const StoreHeader = ({ storeId, token, name, storeImage }) => {
   const [like, setLike] = useState(0);
   const [toggleStar, setToggleStar] = useState(false);
   const [showModal, setShowMdal] = useState(false);
-
+  //좋아요
   const onClickLike = useCallback(() => {
     if (token) {
-      setLike(prev => prev + 1);
       axios
         .post(`http://127.0.0.1:8000/like/${storeId}/likes`)
-        .then(response => setLike(response.data.num));
+        .then(response => setLike(prev => prev + 1));
     } else {
       setShowMdal(prev => !prev);
     }
   }, [token, like]);
-
+  //찜하기
   const onClickStar = useCallback(() => {
-    setToggleStar(prev => !prev);
-  }, [toggleStar]);
+    if (token) {
+      axios
+        .post(`http://127.0.0.1:8000/favorite/do`, { store_Id: storeId })
+        .then(response => setToggleStar(prev => !prev));
+    } else {
+      setShowMdal(prev => !prev);
+    }
+  }, [token, toggleStar]);
 
   useEffect(() => {
     //좋아요 수 API
@@ -52,6 +58,9 @@ const StoreHeader = ({ storeId, token, name, storeImage }) => {
       .catch(error => {
         console.log(error);
       });
+    // if(token) {
+    //   axios.post()
+    // }
   }, []);
 
   const onClose = e => {
@@ -66,24 +75,24 @@ const StoreHeader = ({ storeId, token, name, storeImage }) => {
       <StoreBasic>
         <Title>{name}</Title>
         <Sub>
-          <div onClick={onClickLike}>
-            <FontAwesomeIcon icon={faThumbsUp} size="2x" />
-            <span>{like}</span>
-          </div>
-          <div onClick={onClickStar}>
+          <IconWrapper onClick={onClickLike}>
+            <FontAwesomeIcon icon={faThumbsUp} size="2x" color="#183052" />
+            <span className="like_num">{like}</span>
+          </IconWrapper>
+          <div>
             {toggleStar ? (
               <>
-                <div className="iconWrapper">
+                <IconWrapper className="iconWrapper">
                   <FontAwesomeIcon icon={faSolidStar} color="#FAD1B6" />
-                  <span>취소</span>
-                </div>
+                  <span className="favorit">취소</span>
+                </IconWrapper>
               </>
             ) : (
               <>
-                <div>
-                  <FontAwesomeIcon icon={faStar} size="2x" />
-                  <span>찜하기</span>
-                </div>
+                <IconWrapper onClick={onClickStar}>
+                  <FontAwesomeIcon icon={faStar} size="2x" color="#FAD1B6" />
+                  <span className="favorit">찜하기</span>
+                </IconWrapper>
               </>
             )}
           </div>

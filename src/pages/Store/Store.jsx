@@ -75,7 +75,7 @@ const reviews = [
 
 const Store = () => {
   const [token, setToken] = useState("");
-  const [me, setme] = useState({});
+  const [me, setme] = useState();
   const [storeInfo, setStoreInfo] = useState("home");
   const [getStore, setGetStore] = useState({});
   const { storeId } = useParams();
@@ -93,9 +93,13 @@ const Store = () => {
         console.log(error);
       });
   }, [storeId]);
-
+  //로그인했을때 로그인한 사용자 정보 가져오기
   if (token) {
-    axios.get(`http://127.0.0.1:8000/store/${storeId}`);
+    axios
+      .get(`http://127.0.0.1:8000/token`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(response => setme(response.data));
   }
 
   const onClickStoreInfo = useCallback(
@@ -145,7 +149,14 @@ const Store = () => {
           <StoreDetail>
             {storeInfo === "home" && <StoreHome getStore={getStore} />}
             {storeInfo === "menu" && <StoreMenu storeId={storeId} />}
-            {storeInfo === "review" && <StoreReview reviews={reviews} />}
+            {storeInfo === "review" && (
+              <StoreReview
+                token={token}
+                storeId={storeId}
+                reviews={reviews}
+                me={me}
+              />
+            )}
           </StoreDetail>
         </StoreInfo>
       </StyledStore>

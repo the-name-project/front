@@ -10,8 +10,13 @@ export const StoreReviewTitle = styled.h5`
 `;
 export const StoreReviewDetail = styled.ul``;
 export const StoreReviewDetailList = styled.li`
-  display: flex;
   padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  .review_info {
+    display: flex;
+    align-items: center;
+  }
   border-bottom: 1px solid #9e9e9e;
 `;
 export const StoreReviewUser = styled.div`
@@ -28,8 +33,7 @@ export const UserAvatar = styled.div`
   font-size: 0.7rem;
 `;
 export const StoreReviewInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  flex: 1;
 `;
 export const StoreReviewTime = styled.span`
   color: #9e9e9e;
@@ -68,4 +72,76 @@ export const StoreReviewEatMenu = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const CommentFormWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .comment {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    textarea {
+      font-family: inherit;
+      width: 100%;
+      padding: 1rem 1rem 1.5rem;
+      border: none;
+      resize: none;
+      border: 1px solid #fee9b2;
+      &::placeholder {
+        color: #9ca3ab;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .comment_button {
+    width: 100%;
+    text-align: right;
+    button {
+      cursor: pointer;
+      border: none;
+      background: #fee9b2;
+      width: 70px;
+      padding: 10px 20px;
+      border-radius: 7px;
+    }
+  }
+`;
+
+export const Textarea = styled.textarea`
+  font-family: inherit;
+  width: 100%;
+  padding: 1rem 1rem 1.5rem;
+  border: none;
+  resize: none;
+  border: 1px solid #fee9b2;
+  &::placeholder {
+    color: #9ca3ab;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-end;
+  button {
+    cursor: pointer;
+    border: none;
+    background: #60da79;
+    color: #fff;
+    width: 70px;
+    padding: 10px 20px;
+    border-radius: 7px;
+  }
+  .review_delete {
+    background: #ec7171;
+  }
 `;
