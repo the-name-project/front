@@ -6,11 +6,6 @@ export const LogoImg = styled.img`
     top: 20px;
     background-color: #FEE9B2;
 `;
-export const MypageLink = styled.p`
-    position: fixed;
-    right: 20px;
-    top: 10px;
-`;
 
 export const Title = styled.h2`
     font-size: 50px;
@@ -44,13 +39,13 @@ export const NameForm = styled.input`
     border-radius: 10px;
 `;
 
-export const GO = styled.div`
+export const NNAME = styled.div`
     margin: 1% 0;
 `;
-export const GoTitle = styled.label`
+export const NNameTitle = styled.label`
     color: #9e9e9e;
 `;
-export const GoForm = styled.input`
+export const NNameForm = styled.input`
     width: 650px;
     height: 40px;
     background-color: #FEE9B2;
@@ -58,13 +53,13 @@ export const GoForm = styled.input`
     border-radius: 10px;
 `;
 
-export const ID = styled.div`
+export const Email = styled.div`
     margin: 1% 0;
 `;
-export const IdTitle = styled.label`
+export const EmailTitle = styled.label`
     color: #9e9e9e;
 `;
-export const IdForm = styled.input`
+export const EmailForm = styled.input`
     width: 650px;
     height: 40px;
     background-color: #FEE9B2;
@@ -93,37 +88,6 @@ export const PwMoreTitle = styled.label`
     color: #9e9e9e;
 `;
 export const PwMoreForm = styled.input`
-    width: 650px;
-    height: 40px;
-    background-color: #FEE9B2;
-    border: none;
-    border-radius: 10px;
-`;
-
-export const Question = styled.div`
-    margin: 1% 0;
-`;
-export const QuesTitle = styled.label`
-    color: #9e9e9e;
-`;
-export const QuesForm = styled.select`
-    width: 650px;
-    height: 40px;
-    background-color: #FEE9B2;
-    border: none;
-    border-radius: 10px;
-`;
-export const Q = styled.option`
-    font-size: 15px
-`;
-
-export const Answer = styled.div`
-    margin: 1% 0;
-`;
-export const AnsTitle =styled.label`
-    color: #9e9e9e;
-`;
-export const AnsForm =styled.input`
     width: 650px;
     height: 40px;
     background-color: #FEE9B2;
