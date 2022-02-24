@@ -131,13 +131,20 @@ export const ModalContent = styled.div`
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   z-index: 5;
   width: 800px;
-  height: 200px;
+  height: 360px;
   margin: auto;
   top: 100px;
   text-align: center;
-  border: 10px solid red;
 `;
-export const ModalText = styled.span`
-  
-  margin-right: 150px;
+export const ModalText = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ModalTitle = styled.h1`
+  font-size: 20px;
+`;
+
+export const ModalFont = styled.label`
+  font-size: 20px;
 `;

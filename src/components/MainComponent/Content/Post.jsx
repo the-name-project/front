@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import NoneImg from "./forbidden.png";
+import NoneImg from "./noimage.png";
 
 import {
   ImgContainer,
