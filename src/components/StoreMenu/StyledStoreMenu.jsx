@@ -4,13 +4,19 @@ export const StyledStoreMenu = styled.ul``;
 
 export const StoreMenuImg = styled.div`
   ${props => {
-    const bgURL = `no-repeat center/80% url("${props.url}")`;
+    const bgURL =
+      !props.url === "None"
+        ? `no-repeat center/80% url("${props.url}")`
+        : "#FEE9B2";
     return css`
       width: 120px;
       height: 120px;
       background: ${bgURL};
       background-size: contain;
       border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     `;
   }}
 `;
