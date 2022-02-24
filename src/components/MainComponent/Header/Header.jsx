@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import CallMainContents from "../Content/CallMainContents";
 import {
   StyledHeader,
   FlexDiv,
@@ -11,16 +13,50 @@ import {
   TopButton,
   ModalOverlay,
   ModalContent,
+  ModalText,
 } from "./StyledHeader";
 import logo from "./만원의행복_100px_9b8b71_3.png";
-const Header = () => {
+const Header = ({ CheckScoreOrder, setCheckScoreOrder }) => {
   const [filter, setFilter] = useState(false);
+  const NaverOrder = () => {
+    setCheckScoreOrder(1);
+  };
+
+  const KaKaoOrder = () => {
+    setCheckScoreOrder(2);
+  };
   const Modal = () => {
     return (
       <ModalOverlay>
         <ModalContent>
-          <h1>난모달</h1>
-          <button onClick={() => setFilter(false)}>나가!</button>
+          <h1>구 선택</h1>
+          <br />
+          <br />
+          <div>
+            <ModalText>서구</ModalText>
+            <ModalText>중구</ModalText>
+            <ModalText>동구</ModalText>
+            <ModalText>영도구</ModalText>
+          </div>
+          <div>
+            <span>진구</span>
+            <span>동래구</span>
+            <span>남구</span>
+            <span>북구</span>
+          </div>
+          <div>
+            <span>해운대구</span>
+            <span>사하구</span>
+            <span>금정구</span>
+            <span>강서구</span>
+          </div>
+          <div>
+            <span>연제구</span>
+            <span>수영구</span>
+            <span>사상구</span>
+            <span>기장군</span>
+          </div>
+
           <button onClick={() => setFilter(false)}>확인</button>
         </ModalContent>
       </ModalOverlay>
@@ -42,8 +78,8 @@ const Header = () => {
       </Search>
       <br />
       <FlexDiv>
-        <OrderButton1>찜 많은 순</OrderButton1>
-        <OrderButton2>리뷰 많은 순</OrderButton2>
+        <OrderButton1 onClick={() => NaverOrder()}>네이버 별점 순</OrderButton1>
+        <OrderButton2 onClick={() => KaKaoOrder()}>카카오 별점 순</OrderButton2>
       </FlexDiv>
     </StyledHeader>
   );

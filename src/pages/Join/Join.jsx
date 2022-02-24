@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import logo from "./만원의행복3.png";
 import {
     LogoImg, Title, JoinForm, Form, NAME, NameTitle, NameForm,
     NNAME, NNameTitle, NNameForm, Email, EmailTitle, EmailForm,
@@ -72,7 +73,7 @@ const Join =()=>{
     }
     return(
         <div>
-            <LogoImg src={"만원의행복3.png"} onClick={gotoMain}></LogoImg>
+            <LogoImg src={logo} onClick={gotoMain}></LogoImg>
             <Title>JOIN</Title>
             <JoinForm onSubmit={onSubmit} method="POST">
                 <Form>

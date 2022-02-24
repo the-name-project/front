@@ -5,7 +5,7 @@ export const LogoImg = styled.img`
     position: fixed;
     left: 20px;
     top: 20px;
-    background-color: #FEE9B2;
+    width: 50px;
 `;
 
 
@@ -70,7 +70,7 @@ export const SbForm = styled.input`
 
 export const Surch = styled.div`
     position: relative;
-    left: 460px;
+    left: 600px;
 `;
 export const DoJoin = styled.h6`
     display: inline-block;
