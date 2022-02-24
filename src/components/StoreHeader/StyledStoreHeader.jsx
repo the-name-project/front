@@ -31,22 +31,65 @@ export const StoreImg = styled.div`
 `;
 
 export const StoreBasic = styled.div`
-  text-align: center;
-  width: 200px;
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Title = styled.h3`
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: 32px;
+  font-weight: 700;
 `;
 
 export const Sub = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: #9e9e9e;
   div {
     cursor: pointer;
     margin-right: 20px;
+  }
+`;
+
+export const ModalWrapper = styled.div`
+  position: fixed;
+  background: rgba(32, 34, 36, 0.75);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .modal {
+    width: 295px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    .modal_close {
+      width: 100%;
+      text-align: right;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    h3 {
+      font-size: 23px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    p {
+      color: #555555;
+      margin-bottom: 40px;
+    }
+    button {
+      cursor: pointer;
+      padding: 10px 20px;
+      border: none;
+      background-color: #fad1b6;
+      border-radius: 20px;
+    }
   }
 `;

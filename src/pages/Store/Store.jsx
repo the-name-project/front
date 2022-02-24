@@ -74,12 +74,15 @@ const reviews = [
 ];
 
 const Store = () => {
+  const [token, setToken] = useState("");
+  const [me, setme] = useState({});
   const [storeInfo, setStoreInfo] = useState("home");
   const [getStore, setGetStore] = useState({});
   const { storeId } = useParams();
   console.log(storeId);
 
   useEffect(() => {
+    setToken(window.localStorage.getItem("token") || "");
     axios
       .get(`http://127.0.0.1:8000/store/${storeId}`)
       .then(response => {
@@ -90,6 +93,10 @@ const Store = () => {
         console.log(error);
       });
   }, [storeId]);
+
+  if (token) {
+    axios.get(`http://127.0.0.1:8000/store/${storeId}`);
+  }
 
   const onClickStoreInfo = useCallback(
     e => {
@@ -108,7 +115,12 @@ const Store = () => {
   return (
     <>
       <StyledStore>
-        <StoreHeader name={getStore.name} storeImage={getStore.image} />
+        <StoreHeader
+          storeId={storeId}
+          token={token}
+          name={getStore.name}
+          storeImage={getStore.image}
+        />
         <StoreInfo>
           <StoreNavBar>
             <StoreInfoList
