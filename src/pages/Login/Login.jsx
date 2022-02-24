@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import {Cookie} from "react-cookie";
+import logo from "./만원의행복3.png";
 import {
     LogoImg, Title, LoginForm, Form, EMAIL, PW, EmailTitle, EmailForm, PwTitle, PwForm,
     Surch, DoJoin, SbForm
 } from './StyledLogin';
-import {Logo} from './만원의행복3.png';
-
 
 const Login =()=>{
     const [user, setUser] = useState({ email:"", hashed_password:""});
@@ -39,7 +39,7 @@ const Login =()=>{
         if (!fetchUser) return null;
         if(fetchUser.email===user.email){
             if(fetchUser.hashed_password===user.hashed_password){
-                window.localStorage.setItem("user_id",user.id);
+                window.localStorage.setItem('user_id', fetchUser.data);
             }
             else{
                 window.alert("비밀번호가 틀렸습니다.");
@@ -59,7 +59,7 @@ const Login =()=>{
     
     return(
         <div>
-            <LogoImg src={Logo} onClick={gotoMain}></LogoImg>
+            <LogoImg  onClick={gotoMain} src={logo}></LogoImg>
             <Title>LOGIN</Title>
             <LoginForm onSubmit={onSubmit} method="GET">
                 <Form>
