@@ -16,8 +16,8 @@ export const MypageCon = styled.div`
 `;
 
 export const LogoImg = styled.img`
-    height = 100%;
-    width = 100%;
+    height = "100%";
+    width = "100%";
     margin-left :1vw;
     cursor :pointer;
 `;
@@ -28,19 +28,7 @@ export const ProfileImg = styled.img`
     max-width = 100px;
     background-size :contain;
     border-radius : 12vw;
-    
 `;
-
-// export const GoHome = styled.div`
-//     position :absolute; 
-//     padding-right :6vw;
-//     padding-bottom :2vw;
-//     font-size :5vw;
-//     left :1vw;
-//     background-color :blue;
-//     z-index :-1;
-    
-// `;
 
 export const MypageTop = styled.div`
     display :flex;
@@ -81,6 +69,10 @@ export const MypageProNickname = styled.div`
     font-weight :bolder;
 `;
 
+// .mypage_pro_nickname>p{
+//     margin :0px;
+// }
+
 export const MypageProEtc = styled.div`
     flex :1;
     font-size :2.5vw;
@@ -110,13 +102,13 @@ export const MypageMenu = styled.div`
     flex-direction :row;
     text-align :center;
     align-items:center;
+    text-decoration: none;
 
     background-color :#FBD1B7;
     color :white;
     font-size :2.5vw;
     margin-top :20px;
-    margin-bottom :3vw;
-    text-decoration: none;
+    margin-bottom :1vw;
 `;
 
 export const MypageMenuN = styled.a`
@@ -130,7 +122,6 @@ export const MypageMenuN = styled.a`
     }
     
 `;
-
 
 export const MypageJjimStore = styled.div`
     display :flex;
@@ -190,12 +181,79 @@ export const MypageJjimInfo = styled.p`
     }
 `;
 
+
+export const StyledStoreReview = styled.div`
+  padding: 20px 80px;
+`;
+
+export const StoreReviewTitle = styled.h5`
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+`;
+export const StoreReviewDetail = styled.ul``;
+export const StoreReviewDetailList = styled.li`
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid #9e9e9e;
+`;
+export const StoreReviewUser = styled.div`
+  margin-right: 20px;
+`;
+export const UserAvatar = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3f6f3;
+  font-size: 0.7rem;
+`;
+export const StoreReviewInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const StoreReviewTime = styled.span`
+  color: #9e9e9e;
+  margin-bottom: 10px;
+`;
+export const StoreReviewContent = styled.div`
+  margin-bottom: 10px;
+  span {
+    margin-right: 10px;
+  }
+`;
+export const StoreReviewImgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+`;
+export const StoreReviewImg = styled.div`
+  ${props => {
+    const bgURL = `no-repeat center/80% url("${props.url}")`;
+    return css`
+      width: ${bgURL ? "120px" : "0px"};
+      height: ${bgURL ? "120px" : "0px"};
+      background: ${bgURL};
+      background-size: contain;
+      border-radius: 15px;
+    `;
+  }}
+`;
+
+export const StoreReviewEatMenu = styled.div`
+  background-color: #fee9b2;
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const MenuDesign = styled.span`
     color :white;
-    display :block;
-    padding-top :1.7vw;
-    padding-bottom :1.7vw;
-    text-decoration-color: #FBD1B7;
+    text-decoration: none;
     &:hover{
         font-weight :bolder;
     }
