@@ -124,16 +124,20 @@ export const ModalOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
-  border: 10px solid;
 `;
 export const ModalContent = styled.div`
   position: relative;
   background-color: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   z-index: 5;
-  width: 1000px;
-  height: 500px;
+  width: 800px;
+  height: 200px;
   margin: auto;
   top: 100px;
   text-align: center;
+  border: 10px solid red;
+`;
+export const ModalText = styled.span`
+  
+  margin-right: 150px;
 `;
