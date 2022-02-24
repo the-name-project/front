@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import logo from "./만원의행복3.png";
-import axios from "axios";
+// import axios from "axios";
 
 // import logo from "./만원의행복3.png";
 import {
