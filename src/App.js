@@ -10,9 +10,11 @@ function App() {
   return (
     <Router>
       <Routes>
-
- 
         <Route path="/" element={<Main />} />
+        <Route path="/join" element={<Join />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/store/:storeId" element={<Store />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
     </Router>
   );

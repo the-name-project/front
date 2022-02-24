@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Test,
   MypageCon,
@@ -26,9 +27,11 @@ const Mypage = () => {
     <div>
       <MypageCon>
         {/* ---------------1---------------------------- */}
-        <MypageTop>
-          <LogoImg src={logo} alt="로고_사진" />
-        </MypageTop>
+        <Link to="/">
+          <MypageTop>
+            <LogoImg src={logo} alt="로고_사진" />
+          </MypageTop>
+        </Link>
         {/* ---------------2---------------------------- */}
         <MypageUserInfo>
           <MypagePro1>

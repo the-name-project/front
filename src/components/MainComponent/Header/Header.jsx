@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import CallMainContents from "../Content/CallMainContents";
 import {
@@ -66,8 +67,12 @@ const Header = ({ CheckScoreOrder, setCheckScoreOrder }) => {
     <StyledHeader>
       {filter === true ? <Modal /> : null}
       <FlexDiv>
-        <TopButton>마이페이지</TopButton>
-        <TopButton>로그인</TopButton>
+        <Link to="/mypage">
+          <TopButton>마이페이지</TopButton>
+        </Link>
+        <Link to="/login">
+          <TopButton>로그인</TopButton>
+        </Link>
       </FlexDiv>
       <Img src={logo} alt="없엉" />
       <br />
