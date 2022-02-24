@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import logo from "./만원의행복3.png";
 import axios from "axios";
 
 // import logo from "./만원의행복3.png";
@@ -58,17 +61,13 @@ const Login = () => {
       window.alert("존재하지 않는 계정입니다.");
     }
   };
-
-  const gotoMain = () => {
-    window.location.href = "메인";
-  };
-  const gotoJoin = () => {
-    window.location.href = "회원가입";
-  };
+ 
 
   return (
     <div>
-      {/* <LogoImg  onClick={gotoMain} src={logo}></LogoImg> */}
+      <Link to="/">
+        <LogoImg src={logo}></LogoImg>
+      </Link>
       <Title>LOGIN</Title>
       <LoginForm onSubmit={onSubmit} method="GET">
         <Form>
@@ -97,8 +96,10 @@ const Login = () => {
             ></PwForm>
           </PW>
           <SbForm type={"submit"} value="Login"></SbForm>
-          <Surch onClick={gotoJoin}>
-            <DoJoin>회원가입</DoJoin>
+          <Surch>
+            <Link to="/join">
+              <DoJoin>회원가입</DoJoin>
+            </Link>
           </Surch>
         </Form>
       </LoginForm>
