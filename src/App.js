@@ -4,7 +4,7 @@ import Store from "./pages/Store/Store";
 import Join from "./pages/Join/Join";
 import Login from "./pages/Login/Login";
 import Main from "./pages/Main/Main";
-
+import Test from "./pages/Main/Test";
 function App() {
   return (
     <Router>

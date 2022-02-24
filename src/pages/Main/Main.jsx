@@ -6,11 +6,12 @@ import { useState } from "react";
 
 const Main = () => {
   const [CheckScoreOrder, setCheckScoreOrder] = useState(0); // 0이면 선택안함 , 1이면 네이버, 2면 카카오
+  const [where, setWhere] = useState("");
 
   return (
     <StyledMain>
-      <Header CheckScoreOrder={CheckScoreOrder} setCheckScoreOrder={setCheckScoreOrder} />
-      <Content CheckScoreOrder={CheckScoreOrder} setCheckScoreOrder={setCheckScoreOrder}/>
+      <Header setCheckScoreOrder={setCheckScoreOrder} setWhere={setWhere} />
+      <Content CheckScoreOrder={CheckScoreOrder} where={where} />
       <Footer />
     </StyledMain>
   );

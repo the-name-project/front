@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { isCompositeComponent } from "react-dom/test-utils";
 import { FaStar } from "react-icons/fa";
-import NoneImg from "./forbidden.png";
+import NoneImg from "./noimage.png";
 
 import {
   ImgContainer,

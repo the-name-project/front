@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { StyledContent } from "./StyledContent";
 import CallMainContents from "./CallMainContents";
-const Content = ({ CheckScoreOrder ,setCheckScoreOrder}) => {
+const Content = ({ CheckScoreOrder, where }) => {
   return (
     <>
       <StyledContent>
-        <CallMainContents CheckScoreOrder={CheckScoreOrder} setCheckScoreOrder={setCheckScoreOrder} />
+        <CallMainContents CheckScoreOrder={CheckScoreOrder} where={where}/>
       </StyledContent>
     </>
   );
