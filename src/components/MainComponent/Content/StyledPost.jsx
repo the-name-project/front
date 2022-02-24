@@ -2,18 +2,8 @@ import { getByPlaceholderText } from "@testing-library/react";
 import styled, { css } from "styled-components";
 
 export const ImgContainer = styled.div`
-
-  position :relative;
+  position: relative;
   float: left;
-  border: 5px solid blue;
-  .top{
-    position: absolute;
-    top: 150:
-    left:30px;
-    z-index:2;
-    color: white;
-    font-size:1rem;
-  }
 `;
 
 //가게 이미지

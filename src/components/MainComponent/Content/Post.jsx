@@ -8,9 +8,9 @@ import {
   StoreImg,
   StoreContent,
   Storeaddress,
-} from "./StyledFirstPost";
+} from "./StyledPost";
 
-const MainContents = ({ posts, loading }) => {
+const Post = ({ posts, loading }) => {
   const [flag, setFlag] = useState(false); //마우스 커서가 사진 위에 존재하는지 true,false로 확인
   const [id, setId] = useState(0);
   //마우스 커서가 올려진 사진만 타이틀을 출력하기 위해 id 따로 저장
@@ -57,4 +57,4 @@ const MainContents = ({ posts, loading }) => {
   );
 };
 
-export default MainContents;
+export default Post;

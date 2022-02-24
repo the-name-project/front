@@ -1,55 +1,68 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FirstPost from "./FirstPost";
-import PlusPost from "./PlusPost";
+import Post from "./Post";
+
 import { ImgWrapper, StyledPlus } from "./StyledCallMainContents";
 
-const CallMainContents = () => {
-  const [plusPost, setPlusPost] = useState([]);
-  const [plusPostArray, setPlusPostArray] = useState([]);
-  const [posts, setPosts] = useState([]);
+const CallMainContents = ({ CheckScoreOrder, setCheckScoreOrder }) => {
+  const [PostArray, setPostArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(30);
+  const [limit, setLimit] = useState(20);
+  const [scoreOrder, setScoreOrder] = useState("");
   // &wheres=%EB%8F%99%EA%B5%AC
   const [where, setWhere] = useState("");
-  const Test = () => {
-    setSkip(skip + 30);
+
+  const AddPost = () => {
+    setSkip(skip + 20);
   };
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true);
       const response = await axios.get(
-        `http://127.0.0.1:8000/store?skip=${skip}&limit=${limit}${where}`
+        // http://127.0.0.1:8000/store/daum_score?skip=0&limit=10
+        // http://127.0.0.1:8000/store/naver_score?skip=0&limit=10&wheres=%EC%A4%91%EA%B5%AC
+        `http://127.0.0.1:8000/store${scoreOrder}?skip=${skip}&limit=${limit}${where}`
       ); //서버가 있어야 함
-      console.log(response.data);
-      let poooost = response.data.slice(0, 30);
-      skip === 0 ? setPosts(poooost) : setPlusPost(poooost); //첨에만 post값 바꿔주고 그담부턴딴거
-      setLoading(false);
+
+      let poooost = response.data.slice(0, 20);
+      skip === 0
+        ? setPostArray((prev) => [poooost])
+        : setPostArray((prev) => [...prev, poooost]);
     }
     fetchData();
-  }, [skip, where]);
-
+  }, [skip, where, scoreOrder, where]);
+  useEffect(() => {
+    function fetchData() {
+      if (CheckScoreOrder == 1) {
+        setScoreOrder((prev) => "/naver_score");
+        setSkip(0);
+      } else if (CheckScoreOrder == 2) {
+        setScoreOrder((prev) => "/daum_score");
+        setSkip(0);
+      }
+    }
+    fetchData();
+  }, [CheckScoreOrder]);
+  // 1.mouseEnter오류
+  console.log(PostArray);
+  // 3. 필터 적용시키기
+  // 3.평점순은 각각 평점순에서 가져오기
+  // 4. 지역별 필터 옵션으로 만들기
   return (
     <div>
       <ImgWrapper>
-        <FirstPost posts={posts} loading={loading}></FirstPost>
-        {/* 1. map을 이용해서 pluspost를 만들때마다 처음부터 렌더링 해도되지만, 
-        // 그렇게하기싫고
-        반복이 아니라 추가를 하고싶다... 어떻게 해야할까?
-        2. 그러니까 onclick이 될때마다
-        //  <PlusPost posts={plusPost} loading={loading}></PlusPost>
-        3.이게 추가가 되면된다는말이다. 아주 단순한 방법이 있을텐데.... */}
-        <PlusPost posts={plusPost} loading={loading}></PlusPost>
-        
+        {PostArray.map((plpost, index) => (
+          <Post key={index} posts={plpost}></Post>
+        ))}
       </ImgWrapper>
+
       <StyledPlus
         onClick={() => {
-          Test();
+          AddPost();
         }}
       >
-        버어엌
+        더보기
       </StyledPlus>
     </div>
   );
