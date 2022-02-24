@@ -48,7 +48,7 @@ export const Sub = styled.div`
   color: #9e9e9e;
   div {
     cursor: pointer;
-    margin-right: 20px;
+    margin-left: 10px;
   }
 `;
 
@@ -91,5 +91,18 @@ export const ModalWrapper = styled.div`
       background-color: #fad1b6;
       border-radius: 20px;
     }
+  }
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  .like_num {
+    color: #183052;
+  }
+  .favorit {
+    color: #fad1b6;
   }
 `;
