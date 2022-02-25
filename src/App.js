@@ -6,6 +6,7 @@ import Login from "./pages/Login/Login";
 import Main from "./pages/Main/Main";
 
 import Mypage from "./pages/Mypage/Mypage";
+import MypageReview from "./pages/Mypage/MypageReview";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/store/:storeId" element={<Store />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypagereview" element={<MypageReview />} />
       </Routes>
     </Router>
   );
