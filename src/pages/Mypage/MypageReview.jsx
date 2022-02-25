@@ -96,24 +96,31 @@ const MypageReview=()=>{
                 </MypageMenu>
 {/* ---------------4---------------------------- */}
 <StyledStoreReview>
-      <StoreReviewTitle>리뷰({(posts_review1).length})</StoreReviewTitle>
+      <StoreReviewTitle>리뷰(2)</StoreReviewTitle>
       <StoreReviewDetail>
           <StoreReviewDetailList>
             <StoreReviewUser>
               <UserAvatar>{posts.nickname}</UserAvatar>
             </StoreReviewUser>
             <StoreReviewInfo>
-              <StoreReviewTime>{posts_review1.date}</StoreReviewTime>
+              <StoreReviewTime>2022.02.25</StoreReviewTime>
               <StoreReviewContent>
                 <span>{posts_review1.content}</span>
-                <span>
-                    <FontAwesomeIcon icon={faThumbsUp} />
-                </span>
               </StoreReviewContent>
-              <StoreReviewImgWrapper>
-                <StoreReviewImg url={logo} />
-                <StoreReviewEatMenu>먹은 메뉴</StoreReviewEatMenu>
-              </StoreReviewImgWrapper>
+            </StoreReviewInfo>
+          </StoreReviewDetailList>
+        
+      </StoreReviewDetail>
+      <StoreReviewDetail>
+          <StoreReviewDetailList>
+            <StoreReviewUser>
+              <UserAvatar>{posts.nickname}</UserAvatar>
+            </StoreReviewUser>
+            <StoreReviewInfo>
+              <StoreReviewTime>2022.02.25</StoreReviewTime>
+              <StoreReviewContent>
+                <span>{posts_review2.content}</span>
+              </StoreReviewContent>
             </StoreReviewInfo>
           </StoreReviewDetailList>
         

@@ -97,35 +97,41 @@ const Mypage=()=>{
                 <MypageJjimStore>
                     <MypageJjimLine>
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][0].name}
-                                <br/><br/>
-                                {MypageData['data'][0].tags}
-                            </MypageJjimInfo>
-                            <MypageJjimUnitImg src ={MypageData['data'][0].image}
-                                height ="100%" width = "100%"/>
+                            <Link to = "/store/1">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][0].name}
+                                    <br/><br/>
+                                    {MypageData['data'][0].tags}
+                                </MypageJjimInfo>
+                                <MypageJjimUnitImg src ={MypageData['data'][0].image}
+                                    height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
 
 
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][1].name}
-                                    <br/><br/>
-                                    {MypageData['data'][1].tags}
-                                </MypageJjimInfo>
-                                <MypageJjimUnitImg src ={MypageData['data'][1].image}
-                                    height ="100%" width = "100%"/>
+                            <Link to = "/store/2">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][1].name}
+                                        <br/><br/>
+                                        {MypageData['data'][1].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][1].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
 
 
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][2].name}
-                                    <br/><br/>
-                                    {MypageData['data'][2].tags}
-                                </MypageJjimInfo>
-                                <MypageJjimUnitImg src ={MypageData['data'][2].image}
-                                    height ="100%" width = "100%"/>
+                            <Link to = "/store/3">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][2].name}
+                                        <br/><br/>
+                                        {MypageData['data'][2].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][2].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
 
 
@@ -134,33 +140,39 @@ const Mypage=()=>{
 
                     <MypageJjimLine>
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][3].name}
-                                    <br/><br/>
-                                    {MypageData['data'][3].tags}
-                                </MypageJjimInfo>
-                                <MypageJjimUnitImg src ={MypageData['data'][3].image}
-                                    height ="100%" width = "100%"/>
+                            <Link to = "/store/4">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][3].name}
+                                        <br/><br/>
+                                        {MypageData['data'][3].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][3].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
 
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][4].name}
-                                    <br/><br/>
-                                    {MypageData['data'][4].tags}
-                                </MypageJjimInfo>
-                                <MypageJjimUnitImg src ={MypageData['data'][4].image}
-                                    height ="100%" width = "100%"/>
+                            <Link to = "/store/5">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][4].name}
+                                        <br/><br/>
+                                        {MypageData['data'][4].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][4].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
 
                         <MypageJjimUnit>
-                            <MypageJjimInfo>
-                                {MypageData['data'][5].name}
-                                    <br/><br/>
-                                    {MypageData['data'][5].tags}
-                                </MypageJjimInfo>
-                                <MypageJjimUnitImg src ={MypageData['data'][5].image}
-                                    height ="100%" width = "100%"/>
+                            <Link to = "/store/6">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][5].name}
+                                        <br/><br/>
+                                        {MypageData['data'][5].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][5].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
                     </MypageJjimLine>
                 </MypageJjimStore>
