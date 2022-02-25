@@ -288,7 +288,7 @@ const Header = ({ setCheckScoreOrder, setWhere }) => {
           <TopButton>마이페이지</TopButton>
         </Link>
         <Link to="/login">
-          <TopButton>로그인</TopButton>
+          <TopButton>로그아웃</TopButton>
         </Link>
       </FlexDiv>
       <Img src={logo} alt="없엉" />
