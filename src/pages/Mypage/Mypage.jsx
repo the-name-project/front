@@ -8,7 +8,7 @@ import {MypageCon, MypageTop, LogoImg,
     MypageJjimStore, MypageJjimLine, MypageJjimUnit, 
 } from './StyledMypage';
 import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import MypageData from './MypageData/MypageData.json';
 import logo from "./만원의행복3.png";
 import defaultProfile from "./defaultProfile.png";
 // import storeData from '../../data/store.json';
@@ -20,26 +20,22 @@ import StoreImg from "./만원의행복3.png";
 
 const Mypage=()=>{
     const [posts, setPosts] = useState([]);
-    const [posts_2, setPosts_2] = useState([]);
+    // const [posts_2, setPosts_2] = useState([]);
 
       
     useEffect(() =>{
         async function fetchData(){
+            console.log("1");
             axios
                 //users 또는 user/1또는 2
                 //Bearer 뒤에 Test Token불러오면 될 듯 
-                .get(`http://127.0.0.1:8000/user/1`, {headers:{Authorization :`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU2MDE3NDAsInN1YiI6IjEifQ.aFNFsKwrBImu2LURGemMZgxPWHPcDPy3RTR74vSup2U`}})
-                .then((response)=>{console.log(response.data)});
+                .get(`http://127.0.0.1:8000/user/1`, {headers:{Authorization :`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDU3MzY1MjIsInN1YiI6IjEifQ.J5Hx60MoV3BWLI2d7bO5lNHt8-VWwKNIjzOtNgB0M7Y`}})
+                .then((response)=>{setPosts(response.data)});
             // setLoading(true);
-            const response = await axios.get(
-                "http://127.0.0.1:8000/user/1"
-            );
-            setPosts(response.data);
-
-            const response_2 = await axios.get(
-                "http://127.0.0.1:8000/store?skip=0&limit=10"
-            );
-            setPosts_2(response_2.data);
+            // const response = await axios.get(
+            //     "http://127.0.0.1:8000/store?skip=0&limit=6"
+            // );
+            // setPosts_2(response.data);
 
         }
         fetchData();
@@ -48,7 +44,10 @@ const Mypage=()=>{
 
     console.log("---------------------------------------------------");
     console.log("사용자 : "+posts.full_name);
-    // console.log(posts_2[0].image);
+
+    // setPosts_2(posts_2,MypageData['data']);
+    console.log(MypageData['data'][1]);
+
 
 // export 
 // const getLoginUser =()=>{
@@ -91,33 +90,90 @@ const Mypage=()=>{
 {/* ---------------3---------------------------- */}
                 <MypageMenu>
                     <MypageMenuN>찜</MypageMenuN>
-                    <MypageMenuN><Link to = "/mypageReview"><MenuDesign>
+                    <MypageMenuN><Link to = "/mypagereview"><MenuDesign>
                       리뷰</MenuDesign></Link></MypageMenuN>
                 </MypageMenu>
 {/* ---------------4---------------------------- */}
                 <MypageJjimStore>
                     <MypageJjimLine>
-                        {/* <BlackUp> */}
-                            <MypageJjimUnit>
+                        <MypageJjimUnit>
+                            <Link to = "/store/1">
                                 <MypageJjimInfo>
-                                    어쩌고 저쩌고
-                                    {/* {posts_2[0].name}<br/>
-                                    {posts_2[0].tags} */}
+                                    {MypageData['data'][0].name}
+                                    <br/><br/>
+                                    {MypageData['data'][0].tags}
                                 </MypageJjimInfo>
-                                <MypageJjimUnitImg src = {StoreImg}/>
-                            </MypageJjimUnit>
-                        {/* </BlackUp> */}
-                        <MypageJjimUnit>
-                            <MypageJjimUnitImg src ="https://img1.kakaocdn.net/relay/local/R640x320/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Ffiy_reboot%2Fplace%2F55F0530108A742489967993C9265D6AB"/>
+                                <MypageJjimUnitImg src ={MypageData['data'][0].image}
+                                    height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
+
+
                         <MypageJjimUnit>
-                        <MypageJjimUnitImg src = "https://img1.kakaocdn.net/relay/local/R640x320/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Ffiy_reboot%2Fplace%2F55F0530108A742489967993C9265D6AB"/>
+                            <Link to = "/store/2">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][1].name}
+                                        <br/><br/>
+                                        {MypageData['data'][1].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][1].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
                         </MypageJjimUnit>
+
+
+                        <MypageJjimUnit>
+                            <Link to = "/store/3">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][2].name}
+                                        <br/><br/>
+                                        {MypageData['data'][2].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][2].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
+                        </MypageJjimUnit>
+
+
                     </MypageJjimLine>
+
+
                     <MypageJjimLine>
-                        <MypageJjimUnit src = "https://img1.kakaocdn.net/relay/local/R640x320/?fname=http%3A%2F%2Ft1.kakaocdn.net%2Ffiy_reboot%2Fplace%2F55F0530108A742489967993C9265D6AB"/>
-                        <MypageJjimUnit src = "img/음식5.jpg"/>
-                        <MypageJjimUnit src = "img/음식6.jpg"/>
+                        <MypageJjimUnit>
+                            <Link to = "/store/4">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][3].name}
+                                        <br/><br/>
+                                        {MypageData['data'][3].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][3].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
+                        </MypageJjimUnit>
+
+                        <MypageJjimUnit>
+                            <Link to = "/store/5">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][4].name}
+                                        <br/><br/>
+                                        {MypageData['data'][4].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][4].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
+                        </MypageJjimUnit>
+
+                        <MypageJjimUnit>
+                            <Link to = "/store/6">
+                                <MypageJjimInfo>
+                                    {MypageData['data'][5].name}
+                                        <br/><br/>
+                                        {MypageData['data'][5].tags}
+                                    </MypageJjimInfo>
+                                    <MypageJjimUnitImg src ={MypageData['data'][5].image}
+                                        height ="100%" width = "100%"/>
+                            </Link>
+                        </MypageJjimUnit>
                     </MypageJjimLine>
                 </MypageJjimStore>
             </MypageCon>
@@ -127,21 +183,3 @@ const Mypage=()=>{
 
 export default Mypage;
 
-
-// ==================================================
-//
-// import {Link} from 'react-router-dom';
-// import MypageHeader from "../../components/MypageComponent/MypageHeader";
-// // import {StyledMypage} from "./StyledMypage";
-
-// const Mypage = () =>{
-//     return(
-//         // <StyledMypage>
-//         <div>
-//             <MypageHeader/>
-//         </div>
-//         // </StyledMypage>
-//     );
-// }
-
-// export default Mypage;
